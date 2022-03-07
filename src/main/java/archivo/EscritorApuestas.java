@@ -30,7 +30,7 @@ public class EscritorApuestas {
       FileWriter myWriter = new FileWriter(ruta);
       while(ingreso != null){
         
-           myWriter.write(ingreso.toString()+"\n");
+           myWriter.write(ingreso.getInfo().toString()+"\n");
            ingreso = ingreso.getSiguiente();
            
       }

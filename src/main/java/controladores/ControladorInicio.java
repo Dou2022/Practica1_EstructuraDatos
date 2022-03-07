@@ -136,11 +136,11 @@ public class ControladorInicio {
         apuestasErrores.imprimirInicioFin();
         
         JFileChooser fileChosser = new JFileChooser();
-        
+        fileChosser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int seleccion = fileChosser.showOpenDialog(vista);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             File fichero = fileChosser.getCurrentDirectory();
-            EscritorApuestas.escribirApuestas(apuestas.getInicio(), fichero.getName()+"Aceptadas.csv");
+            EscritorApuestas.escribirApuestas(apuestas.getInicio(), fichero.getAbsolutePath()+"Aceptadas.csv");
             EscritorApuestas.escribirApuestas(apuestasErrores.getInicio(), fichero.getName()+"Rechazadas.csv");
         }
         
