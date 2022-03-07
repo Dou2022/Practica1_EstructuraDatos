@@ -1,0 +1,110 @@
+		a	b	lambda
+>Q0		-	-	{Q1, Q7}
+ Q1		-	-	{Q2, Q4}
+ Q2		{Q3}	-	-
+ Q3		-	-	{Q6}
+ Q4		-	{Q5}	-
+ Q5		-	-	{Q6}
+ Q6		-	-	{Q1, Q7}
+ Q7		{Q8}	-	- 	
+ Q8		-	{Q9}	-
+ Q9		-	{Q10}	-
+ Q10		-	-	{Q11, Q17}
+ Q11		-	-	{Q12, Q13}
+ Q12		{Q14}	-	-
+ Q13		-	{Q15}	-
+ Q14		-	-	{Q16}
+ Q15		-	-	{Q16}
+ Q16		-	-	{Q11,Q17}
+*Q17		-	-	-
+
+estadosD = {
+	{Q0, Q1, Q7, Q2, Q4} A*
+	{Q8,Q3,Q6, Q1, Q7,Q2, Q4} B*
+	{Q5, Q6, Q1, Q7,Q2, Q4}  C*
+	{Q9,Q5, Q6, Q1, Q7,Q2, Q4}  D*
+	{Q10,Q5,Q11, Q17,Q6, Q12, Q13, Q1, Q7,Q2, Q4}  E*
+	{Q14,Q8,Q3, Q16,Q6,Q1, Q7, Q2, Q4,Q11,Q17,Q12, Q13}  F*
+	{Q15,Q5,Q16,Q6,Q11,Q17,Q1, Q7,Q12, Q13,Q2, Q4}  G*
+	{Q9,Q5,Q15,Q6,Q16,Q1, Q7,Q11,Q17,Q2, Q4,Q12, Q13}  H*
+	{Q10,Q5,Q15,Q11, Q17,Q6,Q16,Q12, Q13,Q1, Q7,Q2, Q4}  I*
+}
+A = c-l({Q0}) = {Q0, Q1, Q7, Q2, Q4}
+
+T = A
+
+mueve(T,a) = {Q8,Q3}
+c-l({Q8,Q3}) = {Q8,Q3,Q6, Q1, Q7,Q2, Q4} = B
+
+mueve(T,b) = {Q5}
+c-l({Q5}) =  {Q5, Q6, Q1, Q7,Q2, Q4} = C
+
+T = B
+
+mueve(T,a) = {Q8, Q3}
+c-l({Q8,Q3}) = {Q8,Q3,Q6, Q1, Q7,Q2, Q4} = B
+
+mueve(T,b) = {Q9,Q5}
+c-l(Q9,Q5}) = {Q9,Q5, Q6, Q1, Q7,Q2, Q4} = D
+
+T = C
+mueve(T,a) = {Q8, Q3}
+c-l({Q8,Q3}) = {Q8,Q3,Q6, Q1, Q7,Q2, Q4} = B
+
+mueve(T,b) = {Q5}
+c-l({Q5}) =  {Q5, Q6, Q1, Q7,Q2, Q4} = C
+
+T = D
+mueve(T,a) = {Q8,Q3}
+c-l({Q8,Q3}) = {Q8,Q3,Q6, Q1, Q7,Q2, Q4} = B
+
+mueve(T,b) = {Q10,Q5}
+c-l({Q10,Q5}) = {Q10,Q5,Q11, Q17,Q6, Q12, Q13, Q1, Q7,Q2, Q4} = E
+
+T = E
+mueve(T,a) = {Q14,Q8,Q3}
+c-l({Q14,Q8,Q3}) = {Q14,Q8,Q3, Q16,Q6,Q1, Q7, Q2, Q4,Q11,Q17,Q12, Q13} = F
+
+mueve(T,b) = {Q15,Q5}
+c-l({Q15,Q5}) = {Q15,Q5,Q16,Q6,Q11,Q17,Q1, Q7,Q12, Q13,Q2, Q4} = G
+
+T = F
+mueve(T,a) = {Q8,Q3,Q14}
+c-l({Q8,Q3,Q14}) = {Q14,Q8,Q3, Q16,Q6,Q1, Q7, Q2, Q4,Q11,Q17,Q12, Q13} = F
+
+mueve(T,b) = {Q9,Q5,Q15}
+c-l({Q9,Q5,Q15}) = {Q9,Q5,Q15,Q6,Q16,Q1, Q7,Q11,Q17,Q2, Q4,Q12, Q13} = H
+
+T = G
+mueve(T,a) = {Q8,Q14,Q3}
+c-l({Q8,Q3,Q14}) = {Q14,Q8,Q3, Q16,Q6,Q1, Q7, Q2, Q4,Q11,Q17,Q12, Q13} = F
+
+mueve(T,b) = {Q15,Q5}
+c-l({Q15,Q5}) = {Q15,Q5,Q16,Q6,Q11,Q17,Q1, Q7,Q12, Q13,Q2, Q4} = G
+
+T = H
+mueve(T,a) = {Q8,Q3,Q14}
+c-l({Q8,Q3,Q14}) = {Q14,Q8,Q3, Q16,Q6,Q1, Q7, Q2, Q4,Q11,Q17,Q12, Q13} = F
+
+mueve(T,b) = {Q10,Q5,Q15}
+c-l({Q10,Q5,Q15}) = {Q10,Q5,Q15,Q11, Q17,Q6,Q16,Q12, Q13,Q1, Q7,Q2, Q4} = I
+
+T = I
+mueve(T,a) = {Q14,Q8,Q3}
+c-l({Q8,Q3,Q14}) = {Q14,Q8,Q3, Q16,Q6,Q1, Q7, Q2, Q4,Q11,Q17,Q12, Q13} = F
+
+
+mueve(T,b) = {Q15,Q5}
+{Q15,Q5,Q16,Q6,Q11,Q17,Q1, Q7,Q12, Q13,Q2, Q4} = G
+
+	a	b
+A	B	C
+B	B	D
+C	B	C
+D	B	E
+E	F	G
+F	F	H
+G	F	G
+H	F	I
+I	F	G
+
